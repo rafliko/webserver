@@ -13,7 +13,7 @@ namespace PartsClient.Data
     public static class PartsManager
     {
         // TODO: Add fields for BaseAddress, Url, and authorizationKey
-        static readonly string BaseAddress = "https://mslearnpartsserver1020316786.azurewebsites.net/";
+        static readonly string BaseAddress = "https://mslearnpartsserver2492028087.azurewebsites.net/";
         static readonly string Url = $"{BaseAddress}/api/";
 
         static HttpClient client;
@@ -49,19 +49,18 @@ namespace PartsClient.Data
             return JsonConvert.DeserializeObject<List<Part>>(result);
         }
 
-        public static async Task<Part> Add(string partName, string supplier, string partType, string price)
+        public static async Task<Part> Add(string marka, string model, string rocznik, string cena)
         {
             if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
                 return new Part();
 
             Part part = new Part()
             {
-                PartName = partName,
-                Suppliers = new List<string>(new[] { supplier }),
-                PartID = string.Empty,
-                PartType = partType,
-                Price = price,
-                PartAvailableDate = DateTime.Now.Date
+                Marka = marka,
+                Model = model,
+                CarID = string.Empty,
+                Rocznik = rocznik,
+                Cena = cena,
             };
 
             var client = await GetClient();
@@ -84,7 +83,7 @@ namespace PartsClient.Data
             if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
                 return;
 
-            HttpRequestMessage msg = new(HttpMethod.Put, $"{Url}parts/{part.PartID}");
+            HttpRequestMessage msg = new(HttpMethod.Put, $"{Url}parts/{part.CarID}");
 
             msg.Content = JsonContent.Create<Part>(part);
 

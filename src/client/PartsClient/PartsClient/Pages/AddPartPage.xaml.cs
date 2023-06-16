@@ -25,11 +25,11 @@ public partial class AddPartPage : ContentPage
 
 			_partToDisplay = value;
 
-			viewModel.PartID = _partToDisplay.PartID;
-			viewModel.PartName = _partToDisplay.PartName;
-			viewModel.Suppliers = _partToDisplay.SupplierString;
-			viewModel.PartType = _partToDisplay.PartType;
-			viewModel.Price = _partToDisplay.Price;
+			viewModel.CarID = _partToDisplay.CarID;
+			viewModel.Marka = _partToDisplay.Marka;
+            viewModel.Model = _partToDisplay.Model;
+            viewModel.Rocznik = _partToDisplay.Rocznik;
+			viewModel.Cena = _partToDisplay.Cena;
         }
 	}
 }

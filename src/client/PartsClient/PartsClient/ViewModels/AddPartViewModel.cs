@@ -20,73 +20,73 @@ namespace PartsClient.ViewModels
 
         public ICommand DeleteCommand { get; private set; }
 
-        string _partId;
-        public string PartID
+        string _carId;
+        public string CarID
         {
-            get => _partId;
+            get => _carId;
             set
             {
-                if (_partId == value)
+                if (_carId == value)
                     return;
 
-                _partId = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PartID)));
+                _carId = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CarID)));
             }
         }
 
-        string _partName;
-        public string PartName
+        string _marka;
+        public string Marka
         {
-            get => _partName;
+            get => _marka;
             set
             {
-                if (_partName == value)
+                if (_marka == value)
                     return;
 
-                _partName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PartName)));
+                _marka = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Marka)));
             }
         }
 
-        string _suppliers;
-        public string Suppliers
+        string _model;
+        public string Model
         {
-            get => _suppliers;
+            get => _model;
             set
             {
-                if (_suppliers == value)
+                if (_model == value)
                     return;
 
-                _suppliers = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Suppliers)));
+                _model = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Model)));
             }
         }
 
-        string _partType;
-        public string PartType
+        string _rocznik;
+        public string Rocznik
         {
-            get => _partType;
+            get => _rocznik;
             set
             {
-                if (_partType == value)
+                if (_rocznik == value)
                     return;
 
-                _partType = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PartType)));
+                _rocznik = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rocznik)));
             }
         }
 
-        string _price;
-        public string Price
+        string _cena;
+        public string Cena
         {
-            get => _price;
+            get => _cena;
             set
             {
-                if (_price == value)
+                if (_cena == value)
                     return;
 
-                _price = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
+                _cena = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cena)));
             }
         }
 
@@ -101,7 +101,7 @@ namespace PartsClient.ViewModels
 
         private async Task SaveData()
         {
-            if (string.IsNullOrWhiteSpace(PartID))
+            if (string.IsNullOrWhiteSpace(CarID))
                 await InsertPart();
             else
                 await UpdatePart();
@@ -109,7 +109,7 @@ namespace PartsClient.ViewModels
 
         private async Task InsertPart()
         {
-            await PartsManager.Add(PartName, Suppliers, PartType, Price);
+            await PartsManager.Add(Marka, Model, Rocznik, Cena);
 
             MessagingCenter.Send(this, "refresh");
 
@@ -120,11 +120,11 @@ namespace PartsClient.ViewModels
         {
             Part partToSave = new()
             {
-                PartID = PartID,
-                PartName = PartName,
-                PartType = PartType,
-                Price = Price,
-                Suppliers = Suppliers.Split(",").ToList()
+                CarID = CarID,
+                Marka = Marka,
+                Rocznik = Rocznik,
+                Cena = Cena,
+                Model = Model
             };
 
             await PartsManager.Update(partToSave);
@@ -136,10 +136,10 @@ namespace PartsClient.ViewModels
 
         private async Task DeletePart()
         {
-            if (string.IsNullOrWhiteSpace(PartID))
+            if (string.IsNullOrWhiteSpace(CarID))
                 return;
 
-            await PartsManager.Delete(PartID);
+            await PartsManager.Delete(CarID);
 
             MessagingCenter.Send(this, "refresh");
 

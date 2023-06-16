@@ -8,11 +8,11 @@
         <TableView Intent="Data" Grid.Row="0" Grid.ColumnSpan="3">
             <TableRoot>
                 <TableSection Title="Part Info">
-                    <EntryCell Label="Part ID" Text="{Binding PartID}" IsEnabled="False" />
-                    <EntryCell Label="Part Name" Text="{Binding PartName}" />
-                    <EntryCell Label="Part Type" Text="{Binding PartType}" />
-                    <EntryCell Label="Supplier" Text="{Binding Suppliers}" />
-                    <EntryCell Label="Price" Text="{Binding Price}" />
+                    <EntryCell Label="Car ID" Text="{Binding CarID}" IsEnabled="False" />
+                    <EntryCell Label="Marka" Text="{Binding Marka}" />
+                    <EntryCell Label="Model" Text="{Binding Model}" />
+                    <EntryCell Label="Rocznik" Text="{Binding Rocznik}" />
+                    <EntryCell Label="Cena" Text="{Binding Cena}" />
                 </TableSection>
             </TableRoot>
         </TableView>

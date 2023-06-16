@@ -10,90 +10,73 @@ namespace PartsClient.Data
     [Serializable]
     public class Part : INotifyPropertyChanged
     {
-        string _partId;
-        public string PartID
+        string _carId;
+        public string CarID
         {
-            get => _partId;
+            get => _carId;
             set
             {
-                if (_partId == value)
+                if (_carId == value)
                     return;
 
-                _partId = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PartID)));
+                _carId = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CarID)));
             }
         }
 
-        string _partName;
-        public string PartName
+        string _marka;
+        public string Marka
         {
-            get => _partName;
+            get => _marka;
             set
             {
-                if (_partName == value)
+                if (_marka == value)
                     return;
 
-                _partName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PartName)));
+                _marka = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Marka)));
             }
         }
 
-        string _theSuppliers;
-        public string TheSuppliers
+        string _model;
+        public string Model
         {
-            get => _theSuppliers;
+            get => _model;
             set
             {
-                if (_theSuppliers == value)
+                if (_model == value)
                     return;
 
-                _theSuppliers = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TheSuppliers)));
+                _model = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Model)));
             }
         }
 
-        string _partType;
-        public string PartType
+        string _rocznik;
+        public string Rocznik
         {
-            get => _partType;
+            get => _rocznik;
             set
             {
-                if (_partType == value)
+                if (_rocznik == value)
                     return;
 
-                _partType = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PartType)));
+                _rocznik = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rocznik)));
             }
         }
 
-        string _price;
-        public string Price
+        string _cena;
+        public string Cena
         {
-            get => _price;
+            get => _cena;
             set
             {
-                if (_price == value)
+                if (_cena == value)
                     return;
 
-                _price = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
-            }
-        }
-
-        public List<string> Suppliers { get; set; }
-        public DateTime PartAvailableDate { get; set; }
-
-        public string SupplierString
-        {
-            get
-            {
-                string result = String.Empty;
-                foreach (string supplier in Suppliers)
-                {
-                    result += $"{supplier}, ";
-                }
-                result = result.Trim(',', ' ');
-                return result;
+                _cena = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cena)));
             }
         }
 
