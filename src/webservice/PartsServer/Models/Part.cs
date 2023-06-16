@@ -2,12 +2,10 @@
 {
     public class Part
     {
-        public string PartID { get; set; }
-        public string PartName { get; set; }
-        public List<string> Suppliers { get; set; }
-        public double Price { get; set; }
-        public DateTime PartAvailableDate { get; set; }
-        public string PartType { get; set; }
-        public string Href => $"api/parts/{PartID}";
+        public string CarID { get; set; }
+        public string Marka { get; set; }
+        public string Model { get; set; }
+        public int Rocznik { get; set; }
+        public double Cena { get; set; }
     }
 }

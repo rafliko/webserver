@@ -37,7 +37,7 @@ namespace PartsService.Controllers
             partid = partid.ToUpperInvariant();
             Console.WriteLine($"GET /api/parts/{partid}");
             var userParts = UserParts;
-            var part = userParts.SingleOrDefault(x => x.PartID == partid);
+            var part = userParts.SingleOrDefault(x => x.CarID == partid);
 
             if (part == null)
             {
@@ -65,7 +65,7 @@ namespace PartsService.Controllers
                     return new HttpResponseMessage(HttpStatusCode.BadRequest);
                 }
 
-                if (string.IsNullOrEmpty(part.PartID))
+                if (string.IsNullOrEmpty(part.CarID))
                 {
                     return new HttpResponseMessage(HttpStatusCode.BadRequest);
                 }
@@ -75,14 +75,14 @@ namespace PartsService.Controllers
 
 
                 var userParts = UserParts;
-                var existingParts = userParts.SingleOrDefault(x => x.PartID == partid);
+                var existingParts = userParts.SingleOrDefault(x => x.CarID == partid);
                 if (existingParts != null)
                 {
-                    existingParts.Suppliers = part.Suppliers;
-                    existingParts.PartType = part.PartType;
-                    existingParts.PartAvailableDate = part.PartAvailableDate;
-                    existingParts.PartName = part.PartName;
-                    existingParts.Price = part.Price;
+                    existingParts.CarID = part.CarID;
+                    existingParts.Marka = part.Marka;
+                    existingParts.Model = part.Model;
+                    existingParts.Rocznik = part.Rocznik;
+                    existingParts.Cena = part.Cena;
                 }
 
                 return new HttpResponseMessage(HttpStatusCode.OK);
@@ -104,14 +104,14 @@ namespace PartsService.Controllers
                     return this.Unauthorized();
                 }
 
-                if (!string.IsNullOrWhiteSpace(part.PartID))
+                if (!string.IsNullOrWhiteSpace(part.CarID))
                 {
                     return this.BadRequest();
                 }
                 Console.WriteLine($"POST /api/parts");
                 Console.WriteLine(JsonSerializer.Serialize(part));
 
-                part.PartID = PartsFactory.CreatePartID();
+                part.CarID = PartsFactory.CreatePartID();
 
                 if (!ModelState.IsValid)
                 {
@@ -120,7 +120,7 @@ namespace PartsService.Controllers
 
                 var userParts = UserParts;
 
-                if (userParts.Any(x => x.PartID == part.PartID))
+                if (userParts.Any(x => x.CarID == part.CarID))
                 {
                     return this.Conflict();
                 }
@@ -148,14 +148,14 @@ namespace PartsService.Controllers
                 }
 
                 var userParts = UserParts;
-                var existingParts = userParts.SingleOrDefault(x => x.PartID == partid);
+                var existingParts = userParts.SingleOrDefault(x => x.CarID == partid);
 
                 if (existingParts == null)
                 {
                     return new HttpResponseMessage(HttpStatusCode.NotFound);
                 }
                 Console.WriteLine($"POST /api/parts/{partid}");
-                userParts.RemoveAll(x => x.PartID == partid);
+                userParts.RemoveAll(x => x.CarID == partid);
 
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }

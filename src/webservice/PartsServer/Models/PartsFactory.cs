@@ -20,48 +20,27 @@
             {
                 yield return new Part
                 {
-                    PartID = "0545685192",
-                    PartName = "Large motherboard",
-                    Suppliers = new List<string> { "A. Datum Corporation", "Allure Bays Corp", "Awesome Computers" },
-                    Price = 100,
-                    PartAvailableDate = new DateTime(2019, 10, 1),
-                    PartType = "Circuit Board",
+                    CarID = "0545685192",
+                    Marka = "Toyota",
+                    Model = "Yaris",
+                    Rocznik = 2008,
+                    Cena = 20000
                 };
                 yield return new Part
                 {
-                    PartID = "0553801473",
-                    PartName = "RISC processor",
-                    Suppliers = new List<string> { "Allure Bays Corp", "Contoso Ltd", "Parnell Aerospace" },
-                    Price = 241,
-                    PartAvailableDate = new DateTime(2021, 07, 12),
-                    PartType = "CPU",
+                    CarID = "0273329829",
+                    Marka = "Toyota",
+                    Model = "Corolla",
+                    Rocznik = 2018,
+                    Cena = 50000
                 };
                 yield return new Part
                 {
-                    PartID = "0544272994",
-                    PartName = "CISC processor",
-                    Suppliers = new List<string> { "Fabrikam, Inc", "A. Datum Corporation", "Parnell Aerospace" },
-                    Price = 999,
-                    PartAvailableDate = new DateTime(2020, 9, 4),
-                    PartType = "CPU",
-                };
-                yield return new Part
-                {
-                    PartID = "141971189X",
-                    PartName = "High resolution card",
-                    Suppliers = new List<string> { "Awesome Computers" },
-                    Price = 397,
-                    PartAvailableDate = new DateTime(2019, 11, 10),
-                    PartType = "Graphics Card",
-                };
-                yield return new Part
-                {
-                    PartID = "1256324778",
-                    PartName = "240V/110V switchable",
-                    Suppliers = new List<string> { "Reskit" },
-                    Price = 333,
-                    PartAvailableDate = new DateTime(2021, 10, 21),
-                    PartType = "PSU",
+                    CarID = "0890917543",
+                    Marka = "BMW",
+                    Model = "X3",
+                    Rocznik = 20198,
+                    Cena = 60000
                 };
             }
         }
