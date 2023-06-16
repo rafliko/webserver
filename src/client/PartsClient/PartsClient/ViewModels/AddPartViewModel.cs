@@ -76,8 +76,22 @@ namespace PartsClient.ViewModels
             }
         }
 
+        string _price;
+        public string Price
+        {
+            get => _price;
+            set
+            {
+                if (_price == value)
+                    return;
+
+                _price = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
+            }
+        }
+
         //private PartsManager partsManager = new PartsManager();
-        
+
         public AddPartViewModel()
         {            
             DoneEditingCommand = new Command(async () => await DoneEditing());
@@ -95,7 +109,7 @@ namespace PartsClient.ViewModels
 
         private async Task InsertPart()
         {
-            await PartsManager.Add(PartName, Suppliers, PartType);
+            await PartsManager.Add(PartName, Suppliers, PartType, Price);
 
             MessagingCenter.Send(this, "refresh");
 
@@ -109,6 +123,7 @@ namespace PartsClient.ViewModels
                 PartID = PartID,
                 PartName = PartName,
                 PartType = PartType,
+                Price = Price,
                 Suppliers = Suppliers.Split(",").ToList()
             };
 

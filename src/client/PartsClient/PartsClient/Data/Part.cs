@@ -66,6 +66,20 @@ namespace PartsClient.Data
             }
         }
 
+        string _price;
+        public string Price
+        {
+            get => _price;
+            set
+            {
+                if (_price == value)
+                    return;
+
+                _price = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
+            }
+        }
+
         public List<string> Suppliers { get; set; }
         public DateTime PartAvailableDate { get; set; }
 

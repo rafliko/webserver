@@ -29,6 +29,7 @@ public partial class AddPartPage : ContentPage
 			viewModel.PartName = _partToDisplay.PartName;
 			viewModel.Suppliers = _partToDisplay.SupplierString;
 			viewModel.PartType = _partToDisplay.PartType;
+			viewModel.Price = _partToDisplay.Price;
         }
 	}
 }

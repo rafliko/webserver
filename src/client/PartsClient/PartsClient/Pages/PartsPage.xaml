@@ -21,6 +21,7 @@
                             <Label Text="{Binding PartID, StringFormat='ID: {0}'}" FontSize="Title" Margin="0,0,0,20"/>
                             <Label Text="{Binding PartName, StringFormat='Part Name: {0}'}"/>
                             <Label Text="{Binding PartType, StringFormat='Part Type: {0}'}"/>
+                            <Label Text="{Binding Price, StringFormat='Part price: {0}'}"/>
                         </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
